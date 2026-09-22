@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512.0" height="512.0" viewBox="0 0 512.0 512.0">
+<g id="fond"><rect width="512" height="512" rx="112" fill="#1F3B32"/></g><g id="symbole_cristal" transform="translate(81.20 72.00) scale(9.2000)"><path id="volume" d="M19 2l16 9.5v17L19 38 3 28.5v-17z" fill="#D99A2B"/><path id="facette_ombre" d="M19 21l16-9.5v17L19 38z" fill="#FFFFFF" opacity=".2"/><path id="separations" d="M19 2v36 M3 11.5l16 9.5 16-9.5" fill="none" stroke="#1F3B32" stroke-width="1.6"/></g>
+</svg>
