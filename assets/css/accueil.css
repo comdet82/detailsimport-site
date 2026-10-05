@@ -55,7 +55,7 @@ p{margin:0}
 .hero .cta{display:flex;gap:10px;flex-wrap:wrap}
 .hero .coin{position:absolute;z-index:2;top:calc(var(--i,1) * 88px + 26px);right:calc(var(--i,1) * var(--gout) + 26px);text-align:right;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--texte-clair);line-height:2}
 @keyframes monte{from{transform:translateY(105%)}to{transform:none}}
-.hero h1 .l{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.2em;margin-bottom:-.14em}
 .hero h1 .l>span{display:block;animation:monte 1.4s cubic-bezier(.16,.84,.28,1) both}
 .hero h1 .l:nth-child(2)>span{animation-delay:.1s}
 
