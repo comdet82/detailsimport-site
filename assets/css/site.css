@@ -450,6 +450,7 @@ footer{background:var(--nuit)}
 .nav.ouvert .burger span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
 .prod .img img{object-position:center 35%}
 @media(max-width:1000px){.nav ul.menu{background:#0F231E;isolation:isolate}}
+.produit-photo img{object-position:center 30%}
 
 footer .haut{grid-template-columns:1.5fr repeat(4,1fr)}
 @media(max-width:1000px){footer .haut{grid-template-columns:1fr 1fr}}
