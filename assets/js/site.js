@@ -27,6 +27,11 @@ document.addEventListener('keydown', (e) => {
 });
 nav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { nav.classList.remove('ouvert'); burger?.setAttribute('aria-expanded', false); }));
 
+// ----- Langue : mémorise le choix FR / EN fait par le visiteur -----
+document.querySelectorAll('a.lang[hreflang]').forEach((a) => a.addEventListener('click', () => {
+  try { localStorage.setItem('di-lang', a.getAttribute('hreflang')); } catch (e) {}
+}));
+
 // ----- Accueil : cadre du hero, manifeste, chaîne horizontale -----
 const hero = document.querySelector('.hero');
 const chaine = document.querySelector('.chaine');

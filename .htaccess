@@ -19,6 +19,7 @@ Header always set X-Content-Type-Options "nosniff"
 Header always set X-Frame-Options "SAMEORIGIN"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
 </IfModule>
 # Cache des fichiers statiques
 <IfModule mod_expires.c>
@@ -27,5 +28,19 @@ ExpiresByType text/css "access plus 1 month"
 ExpiresByType application/javascript "access plus 1 month"
 ExpiresByType image/svg+xml "access plus 1 month"
 ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType text/html "access plus 0 seconds"
+ExpiresByType application/xml "access plus 1 day"
 </IfModule>
-ErrorDocument 404 /index.html
+ErrorDocument 404 /404.html
+
+# Compression
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript application/ld+json image/svg+xml
+</IfModule>
+# Types
+AddType image/webp .webp
+AddType text/plain .txt
+AddDefaultCharset UTF-8
