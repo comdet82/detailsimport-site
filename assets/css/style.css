@@ -187,7 +187,17 @@ figure{margin:0}
 .chaine{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
 .chaine .etapes{grid-template-columns:1fr}
 .chaine .etapes li{padding:14px 0}
-.colle{position:sticky;top:100px;aspect-ratio:3/4}
+.colle{position:sticky;top:100px}
+.chaine .tete{display:block;margin-bottom:32px}
+.chaine .tete .mono{padding-top:0;margin-bottom:14px}
+.chaine .photo{height:min(52vh,480px)}
+section.bloc-chiffres{padding:52px 0}
+.bloc-chiffres .container{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+.bloc-chiffres .tete{margin:0;display:block}
+.bloc-chiffres .tete .mono{padding-top:0}
+.bloc-chiffres .chiffres div{padding:4px 28px}
+.bloc-chiffres .chiffres strong{font-size:clamp(24px,2.4vw,34px)}
+.bloc-chiffres .chiffres p{margin-top:8px}
 .photo-pleine{position:relative;height:clamp(380px,62vh,620px);overflow:hidden;color:#fff;display:flex;align-items:flex-end}
 .photo-pleine img{position:absolute;inset:0}
 .photo-pleine::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,59,50,0) 35%,rgba(31,59,50,.85))}
@@ -201,7 +211,11 @@ figure{margin:0}
  .hero-img{object-position:center}
  .duo,.chaine{grid-template-columns:1fr;gap:34px}
  .duo .photo{aspect-ratio:4/3}
- .colle{position:static;aspect-ratio:16/10}
+ .colle{position:static}
+ .chaine .photo{height:auto;aspect-ratio:16/10}
+ section.bloc-chiffres{padding:40px 0}
+ .bloc-chiffres .container{grid-template-columns:1fr;gap:8px}
+ .bloc-chiffres .chiffres div{padding:16px 0}
  .cartes-duo{grid-template-columns:1fr 1fr;gap:28px 20px}
 }
 @media(max-width:520px){.cartes-duo{grid-template-columns:1fr}}
