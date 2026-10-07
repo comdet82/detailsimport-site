@@ -27,10 +27,29 @@ document.addEventListener('keydown', (e) => {
 });
 nav?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { nav.classList.remove('ouvert'); burger?.setAttribute('aria-expanded', false); }));
 
-// ----- Langue : mémorise le choix FR / EN fait par le visiteur -----
-document.querySelectorAll('a.lang[hreflang]').forEach((a) => a.addEventListener('click', () => {
+// ----- Langue : menu déroulant et mémorisation du choix -----
+const sel = document.querySelector('.lang-sel');
+const selBtn = sel?.querySelector('button');
+selBtn?.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const o = sel.classList.toggle('ouvert');
+  selBtn.setAttribute('aria-expanded', o);
+});
+document.addEventListener('click', (e) => {
+  if (sel && !e.target.closest('.lang-sel')) { sel.classList.remove('ouvert'); selBtn.setAttribute('aria-expanded', false); }
+});
+document.querySelectorAll('a.lang-opt[hreflang]').forEach((a) => a.addEventListener('click', () => {
   try { localStorage.setItem('di-lang', a.getAttribute('hreflang')); } catch (e) {}
 }));
+
+// ----- Bandeau Fi Europe : masqué après le salon, le menu se cale dessous -----
+let fi = document.querySelector('.fi-bar');
+if (fi && Date.now() > new Date(fi.dataset.fin + 'T00:00:00+01:00').getTime()) { fi.remove(); fi = null; }
+function caleNav() {
+  if (!nav) return;
+  const base = 16;
+  nav.style.top = fi ? Math.max(base, fi.offsetHeight + 10 - scrollY) + 'px' : '';
+}
 
 // ----- Accueil : cadre du hero, manifeste, chaîne horizontale -----
 const hero = document.querySelector('.hero');
@@ -45,20 +64,40 @@ if (man) {
 }
 const pleine = document.querySelector('.pleine img');
 
-function dimension() {
-  if (chaine && piste) chaine.style.height = petit() ? 'auto' : (innerHeight + Math.max(0, piste.scrollWidth - innerWidth) + 'px');
+// Chaîne : carrousel libre (flèches, glisser, balayage), sans bloquer le défilement de la page
+if (piste) {
+  const pas = () => { const e = piste.querySelector('.etape:not(.ph)'); return e ? e.getBoundingClientRect().width + 14 : 300; };
+  const g = chaine.querySelector('.fl-g'), d = chaine.querySelector('.fl-d');
+  const maj = () => {
+    const max = piste.scrollWidth - piste.clientWidth;
+    const q = max > 0 ? piste.scrollLeft / max : 0;
+    barre?.style.setProperty('--p', q.toFixed(3));
+    if (g) g.disabled = piste.scrollLeft < 4;
+    if (d) d.disabled = piste.scrollLeft > max - 4;
+  };
+  g?.addEventListener('click', () => piste.scrollBy({ left: -pas() * 2, behavior: reduit ? 'auto' : 'smooth' }));
+  d?.addEventListener('click', () => piste.scrollBy({ left: pas() * 2, behavior: reduit ? 'auto' : 'smooth' }));
+  piste.addEventListener('scroll', maj, { passive: true });
+  addEventListener('resize', maj);
+  let x0 = 0, s0 = 0, glisse = false;
+  piste.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    glisse = true; x0 = e.clientX; s0 = piste.scrollLeft; piste.classList.add('drag'); piste.setPointerCapture(e.pointerId);
+  });
+  piste.addEventListener('pointermove', (e) => { if (glisse) piste.scrollLeft = s0 - (e.clientX - x0); });
+  const fin = () => { if (!glisse) return; glisse = false; piste.classList.remove('drag'); };
+  piste.addEventListener('pointerup', fin); piste.addEventListener('pointercancel', fin);
+  piste.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { piste.scrollBy({ left: pas(), behavior: 'smooth' }); e.preventDefault(); }
+    if (e.key === 'ArrowLeft') { piste.scrollBy({ left: -pas(), behavior: 'smooth' }); e.preventDefault(); }
+  });
+  maj();
 }
 function tick() {
   const y = scrollY, h = innerHeight;
   if (hero && !petit()) {
     const p = Math.min(1, Math.max(0, y / Math.max(1, hero.offsetHeight - h)));
     hero.style.setProperty('--i', reduit ? 1 : (1 - p).toFixed(3));
-  }
-  if (chaine && piste && !petit()) {
-    const top = chaine.offsetTop, dist = chaine.offsetHeight - h;
-    const q = Math.min(1, Math.max(0, (y - top) / Math.max(1, dist)));
-    piste.style.transform = `translateX(${-q * Math.max(0, piste.scrollWidth - innerWidth)}px)`;
-    barre?.style.setProperty('--p', q.toFixed(3));
   }
   if (man) {
     const r = man.getBoundingClientRect();
@@ -74,17 +113,25 @@ function tick() {
     const fin = petit() ? hero.offsetHeight - 80 : hero.offsetHeight - h * 0.9;
     nav.classList.toggle('dense', y > fin);
   }
+  caleNav();
 }
-dimension(); tick();
+tick();
 addEventListener('scroll', tick, { passive: true });
-addEventListener('resize', () => { dimension(); tick(); });
-addEventListener('load', () => { dimension(); tick(); });
+addEventListener('resize', tick);
+addEventListener('load', tick);
 
 // ----- Apparitions -----
 const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('vu'); io.unobserve(e.target); } }), { threshold: 0.15 });
 document.querySelectorAll('.rv').forEach((el) => io.observe(el));
 const trace = document.getElementById('trace');
 if (trace) new IntersectionObserver((es, o) => es.forEach((e) => { if (e.isIntersecting) { trace.style.strokeDashoffset = 0; o.disconnect(); } }), { threshold: 0.4 }).observe(trace);
+
+// ----- Anti-spam : temps passé sur la page avant l'envoi -----
+const t0 = Date.now();
+document.querySelectorAll('form[action="/mail/devis.php"]').forEach((f) => f.addEventListener('submit', () => {
+  const dt = f.querySelector('input[name="dt"]');
+  if (dt) dt.value = Date.now() - t0;
+}));
 
 // ----- Retour du formulaire (?envoi=ok ou ?envoi=erreur) -----
 const params = new URLSearchParams(location.search);

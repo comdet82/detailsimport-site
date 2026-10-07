@@ -1,9 +1,9 @@
 # Détails Import
 
-> Détails Import (DETAILS IMPORT SAS, Montauban, France) est un importateur français intégré de gomme arabique (gomme d'acacia, E414, Acacia senegal) d'origine Tchad, membre de Détails Groupe. La société maîtrise toute la chaîne, de la récolte au Tchad jusqu'à la livraison aux industriels européens, sans intermédiaire.
+> Détails Import (DETAILS IMPORT SAS, Montauban, France) est un importateur français intégré de gomme arabique (gomme d'acacia, E414, Acacia senegal et Acacia seyal) d'origine Tchad, membre de Détails Groupe. La société maîtrise toute la chaîne, de la récolte au Tchad jusqu'à la livraison aux industriels européens, sans intermédiaire.
 
 ## Faits clés
-- Produits : gomme arabique brute (morceaux, sacs doublés en polyéthylène de 50 kg ou 25 kg) et gomme arabique atomisée (poudre spray-dried, sacs de 25 kg). À venir : gomme instantanée, sésame, beurre de karité, encens.
+- Produits : gomme arabique brute Acacia senegal et Acacia seyal (morceaux, sacs doublés en polyéthylène de 50 kg ou 25 kg) et gomme arabique atomisée (poudre spray-dried, sacs de 25 kg). À venir : gomme instantanée, sésame, beurre de karité, encens.
 - Certification : ISO 22000. Chaque lot est analysé par le laboratoire indépendant Eurofins.
 - Profil : 100 % d'origine végétale, sans ingrédient d'origine animale, naturellement sans gluten, sans OGM, sans allergènes alimentaires ; gomme brute non irradiée.
 - Spécifications gomme brute : humidité < 15 %, cendres < 4 %, pH 4 à 6, viscosité 60 à 150 cP, germes aérobies totaux < 10 000 ufc/g, absence de Salmonella et d'E. coli.
@@ -20,12 +20,17 @@
 - [Cosmétique](https://detailsimport.com/marches/cosmetique.html)
 - [Nutraceutique](https://detailsimport.com/marches/nutraceutique.html)
 - [Histoire et engagements](https://detailsimport.com/engagements.html)
+- [Guide de la gomme arabique (questions fréquentes)](https://detailsimport.com/guide-gomme-arabique.html)
 - [English version](https://detailsimport.com/en/)
 
 ## English summary
 Détails Import (DETAILS IMPORT SAS, Montauban, France) is a French integrated importer of acacia gum (gum arabic, E414, Acacia senegal) from Chad and a member of Détails Groupe. It controls the whole chain from harvest in Chad to delivery to European manufacturers.
-- Products: raw acacia gum nodules (50 kg or 25 kg polyethylene-lined bags) and spray-dried acacia gum powder (25 kg bags). Coming soon: instant gum, sesame, shea butter, frankincense.
+- Products: raw acacia gum nodules, Acacia senegal and Acacia seyal (50 kg or 25 kg polyethylene-lined bags) and spray-dried acacia gum powder (25 kg bags). Coming soon: instant gum, sesame, shea butter, frankincense.
 - Certification: ISO 22000. Every lot tested by Eurofins. 100% plant-based, no animal-derived ingredients, naturally gluten-free, GMO-free.
 - Logistics: 44 tonnes shipped every 2 to 3 weeks from Douala, about 24 shipments a year to Europe, year-round availability, 3-year shelf life.
 - Markets: food and beverage, pharmaceuticals, cosmetics, nutraceuticals.
-- Pages: [Home](https://detailsimport.com/en/), [Raw acacia gum](https://detailsimport.com/en/products/raw-acacia-gum.html), [Spray-dried acacia gum](https://detailsimport.com/en/products/spray-dried-acacia-gum.html), [Food & beverage](https://detailsimport.com/en/markets/food-beverage.html), [Pharmaceutical](https://detailsimport.com/en/markets/pharmaceutical.html), [Cosmetics](https://detailsimport.com/en/markets/cosmetics.html), [Nutraceuticals](https://detailsimport.com/en/markets/nutraceuticals.html), [Our story](https://detailsimport.com/en/commitments.html)
+- Pages: [Home](https://detailsimport.com/en/), [Raw acacia gum](https://detailsimport.com/en/products/raw-acacia-gum.html), [Spray-dried acacia gum](https://detailsimport.com/en/products/spray-dried-acacia-gum.html), [Food & beverage](https://detailsimport.com/en/markets/food-beverage.html), [Pharmaceutical](https://detailsimport.com/en/markets/pharmaceutical.html), [Cosmetics](https://detailsimport.com/en/markets/cosmetics.html), [Nutraceuticals](https://detailsimport.com/en/markets/nutraceuticals.html), [Our story](https://detailsimport.com/en/commitments.html), [Acacia gum guide](https://detailsimport.com/en/acacia-gum-guide.html)
+
+## Deutsch
+Détails Import ist ein französischer, integrierter Importeur von Gummi arabicum (E 414, Acacia senegal und Acacia seyal) aus dem Tschad. ISO 22000, jede Charge von Eurofins analysiert, 100 % pflanzlich, von Natur aus glutenfrei.
+- Seiten: [Startseite](https://detailsimport.com/de/), [Gummi arabicum roh](https://detailsimport.com/de/produkte/gummi-arabicum-roh.html), [Gummi arabicum sprühgetrocknet](https://detailsimport.com/de/produkte/gummi-arabicum-spruehgetrocknet.html), [Lebensmittel](https://detailsimport.com/de/maerkte/lebensmittel.html), [Pharma](https://detailsimport.com/de/maerkte/pharma.html), [Kosmetik](https://detailsimport.com/de/maerkte/kosmetik.html), [Nahrungsergänzung](https://detailsimport.com/de/maerkte/nahrungsergaenzung.html), [Ratgeber](https://detailsimport.com/de/gummi-arabicum-ratgeber.html), [Verantwortung](https://detailsimport.com/de/verantwortung.html), [Impressum](https://detailsimport.com/de/impressum.html)

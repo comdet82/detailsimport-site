@@ -31,7 +31,35 @@ if ($nom === '' || $societe === '' || $pays === '' || !filter_var($email, FILTER
     retour($retour, 'erreur');
 }
 
-$sujet = '=?UTF-8?B?' . base64_encode("Demande de devis site : $produit ($societe)") . '?=';
+// ----- Anti-spam (sans captcha) -----
+// Les robots repérés reçoivent une fausse confirmation : ils ne savent pas qu'ils ont été bloqués.
+$a_verifier = false;
+
+// 1. Temps de remplissage (mesuré par le navigateur, en ms) : moins de 3 secondes = robot
+$dt = isset($_POST['dt']) ? (int)$_POST['dt'] : 0;
+if ($dt > 0) {
+    if ($dt < 3000) retour($retour, 'ok');
+} else {
+    $a_verifier = true;   // navigateur sans JavaScript : on laisse passer mais on le signale
+}
+
+// 2. Liens : un vrai client n'a pas besoin de plusieurs liens
+$tout = "$nom $societe $pays $message";
+$nb_liens = preg_match_all('~(https?://|www\.|\[url|<a\s)~i', $tout);
+if ($nb_liens > 2 || preg_match('~(https?://|www\.)~i', "$nom $societe $pays")) retour($retour, 'ok');
+
+// 3. Limite : 5 demandes par heure et par adresse IP
+$ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+$fichier = rtrim(sys_get_temp_dir(), '/') . '/di_devis_' . substr(hash('sha256', $ip . 'detailsimport'), 0, 32);
+$heures = [];
+if (is_file($fichier)) {
+    $heures = array_filter(array_map('intval', explode(',', (string)@file_get_contents($fichier))), function ($h) { return $h > time() - 3600; });
+}
+if (count($heures) >= 5) retour($retour, 'ok');
+$heures[] = time();
+@file_put_contents($fichier, implode(',', $heures), LOCK_EX);
+
+$sujet = '=?UTF-8?B?' . base64_encode(($a_verifier ? "[À vérifier] " : "") . "Demande de devis site : $produit ($societe)") . '?=';
 $corps = "Nouvelle demande depuis detailsimport.com\n\n"
        . "Nom : $nom\nSociété : $societe\nE-mail : $email\nTéléphone : $tel\nPays : $pays\n"
        . "Secteur : $secteur\nProduit : $produit\nQuantité : $quantite\nLangue : $lang\n\n"
