@@ -5,6 +5,7 @@
  */
 $DESTINATAIRE = 'contact@detailsimport.com';
 $EXPEDITEUR   = 'site@detailsimport.com';
+$COPIE        = 'com@detailsgroupe.com';   // copie cachée de chaque demande
 
 function retour($url, $etat) {
     $url = (is_string($url) && strpos($url, '/') === 0 && strpos($url, '//') !== 0) ? $url : '/';
@@ -37,6 +38,7 @@ $corps = "Nouvelle demande depuis detailsimport.com\n\n"
        . "Message :\n$message\n";
 $entetes = "From: Site Détails Import <$EXPEDITEUR>\r\n"
          . "Reply-To: $email\r\n"
+         . "Bcc: $COPIE\r\n"
          . "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
 
 $ok = mail($DESTINATAIRE, $sujet, $corps, $entetes, '-f' . $EXPEDITEUR);
