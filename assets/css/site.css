@@ -100,7 +100,9 @@ p{margin:0}
 section.s{padding:130px 0}
 
 /* Produits */
-.produits{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.produits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.produits .prod .c{padding:26px}
+.produits .prod h3{font-size:clamp(24px,2.1vw,34px)}
 .prod{position:relative;border-radius:var(--r);overflow:hidden;background:var(--papier);color:var(--vert);display:grid;grid-template-rows:auto 1fr}
 .prod .img{aspect-ratio:16/11;overflow:hidden}
 .prod .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.16,.84,.28,1)}
@@ -430,7 +432,20 @@ footer{background:var(--nuit)}
 .legal h2{font-size:clamp(22px,2vw,28px);margin-top:44px}
 .legal p{margin-top:12px;line-height:1.8;color:#3c4a44;max-width:72ch}
 
+/* équipe */
+.equipe{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:980px}
+.membre{border-radius:var(--r);background:#fff;border:1px solid var(--filet);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.membre .portrait{position:relative;aspect-ratio:4/5;background:var(--sable);overflow:hidden}
+.membre .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.membre .portrait .mono{position:absolute;inset:0;display:grid;place-items:center;background:var(--vert);color:var(--papier);font-family:var(--serif);font-style:italic;font-size:clamp(80px,9vw,128px);letter-spacing:-.02em;line-height:1}
+.membre .portrait .mono::after{content:"";position:absolute;inset:18px;border:1px solid rgba(247,241,230,.18);border-radius:calc(var(--r) - 8px)}
+.membre .credit{position:absolute;right:12px;bottom:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.78);text-shadow:0 1px 3px rgba(0,0,0,.35)}
+.membre .c{padding:26px 28px 30px;display:flex;flex-direction:column;gap:10px}
+.membre h3{font-size:clamp(22px,1.9vw,28px);line-height:1.1;letter-spacing:-.03em}
+.membre p{font-size:15px;line-height:1.7;color:#4d5a54}
+
 @media(max-width:1000px){
+ .produits{grid-template-columns:1fr 1fr}
  .page-hero .grille,.deux-col,.cta-bloc{grid-template-columns:1fr;gap:34px}
  .cartes,.cartes.c4,.autres,.frise{grid-template-columns:1fr 1fr}
  .mosaique{grid-template-columns:1fr 1fr;grid-template-rows:auto}
@@ -440,6 +455,7 @@ footer{background:var(--nuit)}
 @media(max-width:700px){
  .page-hero{padding:120px 0 50px}
  .cartes,.cartes.c2,.cartes.c4,.autres,.frise{grid-template-columns:1fr}
+ .equipe{grid-template-columns:1fr;max-width:480px}
  .faq .rep{padding-right:0}
  .resume dl div{flex-direction:column;gap:4px}
  .resume dd{text-align:left}
