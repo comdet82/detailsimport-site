@@ -433,16 +433,14 @@ footer{background:var(--nuit)}
 .legal p{margin-top:12px;line-height:1.8;color:#3c4a44;max-width:72ch}
 
 /* équipe */
-.equipe{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:980px}
-.membre{border-radius:var(--r);background:#fff;border:1px solid var(--filet);overflow:hidden;display:flex;flex-direction:column;min-width:0}
-.membre .portrait{position:relative;aspect-ratio:4/5;background:var(--sable);overflow:hidden}
-.membre .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-.membre .portrait .mono{position:absolute;inset:0;display:grid;place-items:center;background:var(--vert);color:var(--papier);font-family:var(--serif);font-style:italic;font-size:clamp(80px,9vw,128px);letter-spacing:-.02em;line-height:1}
-.membre .portrait .mono::after{content:"";position:absolute;inset:18px;border:1px solid rgba(247,241,230,.18);border-radius:calc(var(--r) - 8px)}
-.membre .credit{position:absolute;right:12px;bottom:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.78);text-shadow:0 1px 3px rgba(0,0,0,.35)}
-.membre .c{padding:26px 28px 30px;display:flex;flex-direction:column;gap:10px}
-.membre h3{font-size:clamp(22px,1.9vw,28px);line-height:1.1;letter-spacing:-.03em}
-.membre p{font-size:15px;line-height:1.7;color:#4d5a54}
+.equipe{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.membre{width:min(100%,460px);border-radius:var(--r);background:#fff;border:1px solid var(--filet);overflow:hidden;display:grid;grid-template-columns:150px 1fr;min-width:0}
+.membre.sans-photo{grid-template-columns:1fr}
+.membre .portrait{position:relative;background:var(--sable);overflow:hidden;min-height:188px}
+.membre .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.membre .c{padding:24px 26px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.membre h3{font-size:clamp(20px,1.7vw,24px);line-height:1.1;letter-spacing:-.03em}
+.membre p{font-size:14.5px;line-height:1.65;color:#4d5a54}
 
 @media(max-width:1000px){
  .produits{grid-template-columns:1fr 1fr}
@@ -455,7 +453,7 @@ footer{background:var(--nuit)}
 @media(max-width:700px){
  .page-hero{padding:120px 0 50px}
  .cartes,.cartes.c2,.cartes.c4,.autres,.frise{grid-template-columns:1fr}
- .equipe{grid-template-columns:1fr;max-width:480px}
+ .membre{grid-template-columns:120px 1fr}
  .faq .rep{padding-right:0}
  .resume dl div{flex-direction:column;gap:4px}
  .resume dd{text-align:left}
