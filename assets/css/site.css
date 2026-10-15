@@ -149,7 +149,7 @@ section.s{padding:130px 0}
 .index a:hover .o{background:var(--ambre);border-color:var(--ambre);color:var(--nuit);transform:rotate(-45deg)}
 
 /* Chiffres */
-.chiffres{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--filet);border-bottom:1px solid var(--filet)}
+.chiffres{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--filet);border-bottom:1px solid var(--filet)}
 .chiffres div{padding:34px 24px;border-left:1px solid var(--filet)}
 .chiffres div:first-child{border-left:0;padding-left:0}
 .chiffres strong{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(40px,4.6vw,68px);line-height:1;color:var(--sable)}
@@ -212,8 +212,9 @@ footer .bas{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;b
  .produits,.contact{grid-template-columns:1fr}
  .eng{grid-template-columns:1fr 1fr}
  .chiffres{grid-template-columns:1fr 1fr}
- .chiffres div:nth-child(3){border-left:0;padding-left:0}
- .chiffres div:nth-child(n+3){border-top:1px solid var(--filet)}
+ .chiffres div:first-child{grid-column:1/-1}
+ .chiffres div:nth-child(2),.chiffres div:nth-child(4){border-left:0;padding-left:0}
+ .chiffres div:nth-child(n+2){border-top:1px solid var(--filet)}
  .index a{grid-template-columns:44px 1fr 44px}
  .index .d{display:none}
  .index .o{width:44px;height:44px}
