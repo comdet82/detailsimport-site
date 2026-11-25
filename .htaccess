@@ -36,6 +36,11 @@ ExpiresByType application/xml "access plus 1 day"
 </IfModule>
 ErrorDocument 404 /404.html
 
+# Produit retiré : gomme atomisée -> gomme brute
+Redirect 301 /produits/gomme-arabique-atomisee.html https://detailsimport.com/produits/gomme-arabique-brute.html
+Redirect 301 /en/products/spray-dried-acacia-gum.html https://detailsimport.com/en/products/raw-acacia-gum.html
+Redirect 301 /de/produkte/gummi-arabicum-spruehgetrocknet.html https://detailsimport.com/de/produkte/gummi-arabicum-roh.html
+
 # Compression
 <IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript application/ld+json image/svg+xml
